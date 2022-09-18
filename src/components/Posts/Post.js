@@ -10,10 +10,7 @@ import {
   Divider,
 } from "semantic-ui-react";
 import { useState } from "react";
-import profile1 from "../../assets/profile-1.jpeg";
 import moment from "moment";
-
-import HeaderTile from "../Header";
 
 export default function Post(props) {
   const formatLikes = () => {
@@ -71,10 +68,6 @@ export default function Post(props) {
   const { userid, displayPic, post, currentUser } = props;
   return (
     <Segment basic className="margin_0_0 padding_0_0 post_container">
-      <HeaderTile
-        title={props.title}
-        goBackHandler={props.goBackHandler}
-      ></HeaderTile>
       <Segment basic className="margin_0_0 padding_0_0 user_tile_strip">
         <Image src={displayPic} avatar />{" "}
         <div>
@@ -149,7 +142,7 @@ export default function Post(props) {
               <Input
                 type="text"
                 fluid
-                placeholder="Add comment"
+                placeholder={"Add comment as " + currentUser.userid + " ..."}
                 className="comment_input_inpost"
                 value={commentInput}
                 onChange={(e) => {
@@ -169,7 +162,7 @@ export default function Post(props) {
                       text: commentInput,
                       postedOn: new Date(),
                     };
-                    props.addNewComment(newComment);
+                    props.addNewCommentHandler(newComment);
                     setCommentInput("");
                   }
                 }}

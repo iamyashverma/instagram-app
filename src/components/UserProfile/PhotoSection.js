@@ -11,16 +11,15 @@ import user from "../../assets/profile-1.jpeg";
 
 export default function PhotoSection(props) {
   const getUserPics = () => {
-    return props.posts.map((post) => (
-      <Grid.Column style={{ padding: "1px" }}>
+    return props.posts.map((post, index) => (
+      <Grid.Column style={{ padding: "1px" }} key={index}>
         <Image
           src={post.pic}
-          postKey={post.id}
+          postkey={post.id}
           className="photo-grid-photo"
           onClick={(e) => {
             e.preventDefault();
-            console.log("Ok");
-            props.handlePicClick(e.target.getAttribute("postKey"));
+            props.handlePostClick(e.target.getAttribute("postkey"));
           }}
         ></Image>
       </Grid.Column>

@@ -7,7 +7,6 @@ import {
   Icon,
   Header,
 } from "semantic-ui-react";
-import user from "../../assets/user.png";
 
 export default function UserSection(props) {
   const nFormatter = (num) => {
@@ -21,9 +20,9 @@ export default function UserSection(props) {
   };
 
   const getUserInfo = () => {
-    return props.userInfo.map((info) => {
+    return props.userInfo.map((info, index) => {
       return (
-        <Item>
+        <Item key={index}>
           <Item.Content>
             <Item.Header>{nFormatter(info.number)}</Item.Header>
             <Item.Meta className="margin_top_0">{info.title}</Item.Meta>

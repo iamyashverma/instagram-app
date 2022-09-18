@@ -5,7 +5,6 @@ import HeaderTile from "./components/Header";
 import UserProfile from "./components/UserProfile/UserProfile";
 import Post from "./components/Posts/Post";
 import Comments from "./components/Comments/Comments";
-import profile1 from "./assets/profile-1.jpeg";
 import data from "./data";
 
 function App() {
@@ -18,35 +17,29 @@ function App() {
     if (currentView === 0)
       return (
         <UserProfile
-          goBackHandler={goBackHandler}
+          handlePostClick={handlePostClick}
           {...currentProfile}
-          handlePicClick={handlePicClick}
-          title={currentProfile.userid}
         ></UserProfile>
       );
     else if (currentView === 1)
       return (
         <Post
-          goBackHandler={goBackHandler}
+          showAllComments={showAllComments}
+          addNewCommentHandler={addNewCommentHandler}
+          handleLike={handleLike}
+          currentUser={currentUser}
+          post={currentPost}
           userid={currentProfile.userid}
           displayPic={currentProfile.displayPic}
-          post={currentPost}
-          showAllComments={showAllComments}
-          currentUser={currentUser}
-          addNewComment={addNewComment}
-          handleLike={handleLike}
-          title={currentProfile.userid}
         ></Post>
       );
     else
       return (
         <Comments
           currentPost={currentPost}
-          goBackHandler={goBackHandler}
           currentProfile={currentProfile}
           currentUser={currentUser}
-          addNewComment={addNewComment}
-          title={"comments"}
+          addNewCommentHandler={addNewCommentHandler}
         ></Comments>
       );
   };
@@ -57,10 +50,10 @@ function App() {
       setCurrentView(1);
     }
   };
-  const handlePicClick = function (postKey) {
+  const handlePostClick = function (postkey) {
     if (currentView === 0) {
       setCurrentPost(
-        profilePosts.filter((post) => post.id === Number(postKey))[0]
+        profilePosts.filter((post) => post.id === Number(postkey))[0]
       );
       setCurrentView(1);
     }
@@ -70,7 +63,7 @@ function App() {
       setCurrentView(2);
     }
   };
-  const addNewComment = function (newComment) {
+  const addNewCommentHandler = function (newComment) {
     let newProfilePosts = profilePosts.map((post) => {
       if (post.id === currentPost.id) {
         post.comments.push(newComment);
@@ -90,8 +83,16 @@ function App() {
     });
     setprofilePosts(newProfilePosts);
   };
+  const getHeaderTileTitle = function () {
+    if (currentView === 2) return "comments";
+    return currentProfile.userid;
+  };
   return (
     <div className="App">
+      <HeaderTile
+        title={getHeaderTileTitle()}
+        goBackHandler={goBackHandler}
+      ></HeaderTile>
       <div className="view-container">{getCurrentView()}</div>
       <Footer className="margin_top_0" {...currentUser}></Footer>
     </div>
