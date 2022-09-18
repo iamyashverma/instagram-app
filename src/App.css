@@ -1,5 +1,10 @@
 .App {
-  text-align: center;
+  max-width: 600px;
+  margin : auto;
+}
+
+.App a{
+  text-decoration: none;
 }
 
 .App-logo {
@@ -7,32 +12,131 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.padding_0_0 {
+  padding: 0 !important;
+}
+.padding_top_0 {
+  padding-top: 0 !important;
+}
+.padding_bottom_0 {
+  padding-bottom: 0 !important;
+}.padding_left_0 {
+  padding-left: 0 !important;
+}.padding_right_0 {
+  padding-right: 0 !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.margin_0_0 {
+  margin: 0 !important;
+}
+.margin_top_0 {
+  margin-top: 0 !important;
+}
+.margin_bottom_0 {
+  margin-bottom: 0 !important;
+}.margin_left_0 {
+  margin-left: 0 !important;
+}.margin_right_0 {
+  margin-right: 0 !important;
+}
+
+.flex_center{
+  display: flex !important;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.boxShadow_0{
+  box-shadow: none !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.user_info_container .user_info_items{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.user_info_container .user_info_items>div:first-child{
+  margin: auto !important;
+}
+
+.user_info_container .user_info_items>div:last-child{
+  margin: auto !important;
+}
+
+.user_info_container .display_pic{
+  border-radius: 50%;
+}
+
+.user_info_container > div:last-child{
+  border-top: 1px solid lightgray !important;
+  border-bottom: 1px solid lightgray !important;
+  text-align: center;
+}
+.user_info_container>div:last-child a{
+  padding: 10px 20px
+}
+
+.insta_header{
+  box-shadow: 0 1px 0 0 rgb(34 36 38 / 15%) !important
+}
+.photo_section .photo-grid{
+  min-height: calc(30vh - 50px);
+  max-height: calc(90vh - 50px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.photo_section .photo-grid .photo-grid-photo{
+  object-fit: cover;
+  width: 200px;
+  height:200px
+}
+
+
+.footer {
+  position: fixed!important;
+    bottom: 0;
+    background-color: white !important;
+    width: 600px;
+    margin-top: -1rem;
+    height: 40px;
+}
+
+.view-container{
+  padding-bottom:40px !important
+}
+
+.post_container .user_tile_strip{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 5px 0 !important;
+}
+
+.ui.comments .comment .avatar img{
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius:50%;
+}
+
+.comment_input {
+  margin-left: 3.5em;
+}
+.comment_input_inpost input, .comment_input input{
+  border:0 !important;
+  padding-left: 0 !important;
+
+}
+
+.post_container .posted-on{
+  color:#696969;
+  margin-top:5px
+}
+
+.post_container .post-pic{
+  object-fit: cover;
+  width: 600px;
+  height:600px
 }
